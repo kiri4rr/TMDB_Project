@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "78424be314842833c04bc3bef5b72e85fff99204",
+          "version": "5.6.4"
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "b4bd0604ded9574807f41b4004b57dd1226a30a4",
+          "version": "3.5.0"
+        }
+      },
+      {
+        "package": "RealmDatabase",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "472d325a2e844fcb48c400db74e6b9646f92ca93",
+          "version": "11.15.0"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "41fe221e2209ad31bee35593513d957dc3e6e458",
+          "version": "10.25.2"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "ae3d0a7703eb883a876864f17a4591158199e9f2",
+          "version": "5.9.0"
+        }
+      },
+      {
+        "package": "YouTubeiOSPlayerHelper",
+        "repositoryURL": "https://github.com/youtube/youtube-ios-player-helper.git",
+        "state": {
+          "branch": null,
+          "revision": "f57129cd4380ec0a74dd3a59da3270a1d653d59b",
+          "version": "1.0.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
