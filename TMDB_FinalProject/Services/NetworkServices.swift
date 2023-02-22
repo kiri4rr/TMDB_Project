@@ -21,18 +21,16 @@ class NetworkService: NetworkServices {
     var idOfMedia = 0
     
     func getListOfData(complition: @escaping (()->())){
+        guard NetworkMonitor.shared.isConnected else { return }
         getListOfMovies()
         getListOfTV()
         DispatchQueue.main.async {
             print(self.dataService.getNumberOfMediaData())
-            if self.dataService.getNumberOfMediaData() > 80{
-                complition()
-            }
+            complition()
         }
     }
     
     func getListOfMovies() {
-        guard NetworkMonitor.shared.isConnected else { return }
         for page in 1...numberOfPages {
             let URLForMovies = Constants.singelton.getURLForMovie(page: page, typeOfContent: Constants.singelton.movieType.lowercased())
             AF.request(URLForMovies).response{[weak self] (response) -> Void in
@@ -57,7 +55,6 @@ class NetworkService: NetworkServices {
     }
     
     func getListOfTV() {
-        guard NetworkMonitor.shared.isConnected else { return }
         for page in 1...numberOfPages {
             let URLForTV = Constants.singelton.getURLForMovie(page: page, typeOfContent: Constants.singelton.seriesType.lowercased())
             AF.request(URLForTV).response{[weak self] (response) in

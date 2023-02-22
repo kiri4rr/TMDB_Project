@@ -1,15 +1,14 @@
 //
-//  MainRealmModel.swift
+//  FavouriteMediaRealmModel.swift
 //  TMDB_FinalProject
 //
-//  Created by Kirill Romanenko on 21.01.2023.
+//  Created by Kirill Romanenko on 22.02.2023.
 //
 
 import Foundation
 import RealmSwift
 
-class MediaRealmModel: Object{
-    @Persisted(primaryKey: true) var id = 0
+class FavouriteMediaRealmModel: Object {
     @Persisted var idOfMedia = 0
     @Persisted var posterPath: String = ""
     @Persisted var name: String = ""
@@ -19,5 +18,4 @@ class MediaRealmModel: Object{
     @Persisted var firstAirDate: String = ""
     @Persisted var keyOfTrailer: String = ""
     @Persisted var typeOfMedia: String = ""
-    
 }

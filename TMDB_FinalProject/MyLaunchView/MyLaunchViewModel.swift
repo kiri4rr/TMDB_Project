@@ -11,10 +11,6 @@ class MyLaunchViewModel{
     
     let networkService: NetworkService? = NetworkService()
     
-    init() {
-        print("\(MyLaunchViewModel.self) is init!")
-    }
-    
     func getListOfData(complition: @escaping (()->())){
         networkService?.getListOfData {
             complition()
@@ -23,6 +19,5 @@ class MyLaunchViewModel{
     
     deinit {
         print("\(MyLaunchViewModel.self) deinited!")
-
     }
 }

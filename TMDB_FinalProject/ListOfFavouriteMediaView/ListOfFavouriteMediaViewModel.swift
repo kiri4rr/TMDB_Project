@@ -17,18 +17,17 @@ class ListOfFavouriteViewModel{
         }
         guard let arrayOfFavouriteMedia = dataService?.getFavouriteMedia() else {return}
         
-        for favouritMedia in arrayOfFavouriteMedia {
-            favouriteMediaModel?.append(FavouriteMediaModel(URLStringOfImage: favouritMedia.posterPath,
-                                                            name: favouritMedia.name))
+        for favouriteMedia in arrayOfFavouriteMedia {
+            favouriteMediaModel?.append(FavouriteMediaModel(URLStringOfImage: favouriteMedia.posterPath,
+                                                            name: favouriteMedia.name))
         }
-        print(favouriteMediaModel?.count ?? 0)
     }
     
     func deleteFromFavourite(index: Int, complition: @escaping (()->())){
         guard let name = favouriteMediaModel?[index].name else {return}
-        guard let value = dataService?.getMediaByName(name) else {return}
+        guard let value = dataService?.getFavouriteMediaByName(name) else {return}
         favouriteMediaModel?.remove(at: index)
-        dataService?.setFavourite(value: value, isFavourite: false)
+        dataService?.deleteFromFavourite(value: value)
         complition()
     }
     

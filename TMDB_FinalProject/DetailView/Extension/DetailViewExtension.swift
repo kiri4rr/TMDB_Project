@@ -11,14 +11,12 @@ import YouTubeiOSPlayerHelper
 extension DetailViewController: YTPlayerViewDelegate{
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        print("playerViewDidBecomeReady")
         loading.isHidden = true
         contentView.isHidden = false
         setupScrollView()
     }
     
     func playerView(_ playerView: YTPlayerView, receivedError error: YTPlayerError) {
-        print("receivedError error: YTPlayerError")
         loading.isHidden = true
         contentView.isHidden = false
         for constraint in self.youtubePlayer.constraints{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BB78F4C29A6508900FAFBBD /* FavouriteMediaRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB78F4B29A6508900FAFBBD /* FavouriteMediaRealmModel.swift */; };
 		4BC7665D297C830E003A487B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7665C297C830E003A487B /* AppDelegate.swift */; };
 		4BC7665F297C830E003A487B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7665E297C830E003A487B /* SceneDelegate.swift */; };
 		4BC76664297C830E003A487B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BC76662297C830E003A487B /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BB78F4B29A6508900FAFBBD /* FavouriteMediaRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMediaRealmModel.swift; sourceTree = "<group>"; };
 		4BC76659297C830E003A487B /* TMDB_FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB_FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC7665C297C830E003A487B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BC7665E297C830E003A487B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				4BC766C4297C87B6003A487B /* MainRealmModel.swift */,
+				4BB78F4B29A6508900FAFBBD /* FavouriteMediaRealmModel.swift */,
 			);
 			path = RealmModels;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				4BC7665D297C830E003A487B /* AppDelegate.swift in Sources */,
 				4BC766BB297C8776003A487B /* MovieResponseModel.swift in Sources */,
 				4BC766DA297ECCF0003A487B /* MyCollectionViewExtension.swift in Sources */,
+				4BB78F4C29A6508900FAFBBD /* FavouriteMediaRealmModel.swift in Sources */,
 				4BC766E0297ECD14003A487B /* MyCollectionView.swift in Sources */,
 				4BC7665F297C830E003A487B /* SceneDelegate.swift in Sources */,
 				4BC766F5298052D8003A487B /* FavouriteTableViewCell.swift in Sources */,

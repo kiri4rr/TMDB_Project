@@ -56,44 +56,39 @@ class DataService: DataServices{
     
     func updateMovieInRealm(movie: Result, id: Int) -> Bool {
         guard let media = realm?.object(ofType: MediaRealmModel.self, forPrimaryKey: id) else{
-            print("no movie by this ID")
             return false
         }
-        if !media.isFavourite || media.name.contains(movie.title) {
-            try? realm?.write{
-                media.idOfMedia = movie.id
-                media.name = movie.title
-                media.overview = movie.overview
-                media.posterPath = movie.posterPath
-                media.firstAirDate = movie.releaseDate
-                media.voteAvarage = String(movie.voteAverage)
-                media.voteCount = String(movie.voteCount)
-                media.typeOfMedia = "movie"
-            }
-            return true
+        
+        try? realm?.write{
+            media.idOfMedia = movie.id
+            media.name = movie.title
+            media.overview = movie.overview
+            media.posterPath = movie.posterPath
+            media.firstAirDate = movie.releaseDate
+            media.voteAvarage = String(movie.voteAverage)
+            media.voteCount = String(movie.voteCount)
+            media.typeOfMedia = "movie"
         }
-        return false
+        return true
     }
     
     func updateSeriesInRealm(series: ResultSeries, id: Int) -> Bool {
         guard let media = realm?.object(ofType: MediaRealmModel.self, forPrimaryKey: id) else{
-            print("no series by this ID")
             return false
         }
-        if !media.isFavourite || media.name.contains(series.name) {
-            try? realm?.write{
-                media.idOfMedia = series.id
-                media.name = series.name
-                media.overview = series.overview
-                media.posterPath = series.posterPath
-                media.firstAirDate = series.firstAirDate
-                media.voteAvarage = String(series.voteAverage)
-                media.voteCount = String(series.voteCount)
-                media.typeOfMedia = "series"
-            }
-            return true
+        
+        try? realm?.write{
+            media.idOfMedia = series.id
+            media.name = series.name
+            media.overview = series.overview
+            media.posterPath = series.posterPath
+            media.firstAirDate = series.firstAirDate
+            media.voteAvarage = String(series.voteAverage)
+            media.voteCount = String(series.voteCount)
+            media.typeOfMedia = "series"
         }
-        return false
+        return true
+        
     }
     
     func addToRealm(value: MediaRealmModel) {
@@ -148,22 +143,50 @@ class DataService: DataServices{
         return value
     }
     
+    func getFavouriteMediaByName(_ name: String) -> FavouriteMediaRealmModel? {
+        guard let value = self.getFavouriteMedia()?.where({ $0.name == name }).first else { return nil }
+        return value
+    }
+    
     func setKeyOfTrailer(value: MediaRealmModel, keyOfTrailer: String){
         try? realm?.write{
             value.keyOfTrailer = keyOfTrailer
         }
     }
     
-    func setFavourite(value: MediaRealmModel, isFavourite: Bool) {
+    func setFavourite(value: MediaRealmModel) {
+        let favouriteMedia = FavouriteMediaRealmModel()
+        favouriteMedia.idOfMedia = value.idOfMedia
+        favouriteMedia.posterPath = value.posterPath
+        favouriteMedia.name = value.name
+        favouriteMedia.overview = value.overview
+        favouriteMedia.voteAvarage = value.voteAvarage
+        favouriteMedia.voteCount = value.voteCount
+        favouriteMedia.firstAirDate = value.firstAirDate
+        favouriteMedia.keyOfTrailer = value.keyOfTrailer
+        favouriteMedia.typeOfMedia = value.typeOfMedia
+        
         try? realm?.write{
-            value.isFavourite = isFavourite
+            realm?.add(favouriteMedia)
         }
     }
     
-    func getFavouriteMedia() -> Results<MediaRealmModel>?{
-        guard let arrayOfFavouriteMedia = realm?.objects(MediaRealmModel.self).where({$0.isFavourite == true}) else {return nil}
+    func deleteFromFavourite(value: FavouriteMediaRealmModel) {
+        try? realm?.write{
+            realm?.delete(value)
+        }
+    }
+    
+    func checkIsFavourite(name: String) -> Bool {
+        guard (realm?.objects(FavouriteMediaRealmModel.self).where({ $0.name == name }).first) != nil else {
+            return false
+        }
+        return true
+    }
+    
+    func getFavouriteMedia() -> Results<FavouriteMediaRealmModel>?{
+        guard let arrayOfFavouriteMedia = realm?.objects(FavouriteMediaRealmModel.self) else {return nil}
         return arrayOfFavouriteMedia
-        
     }
     
 }
